@@ -268,7 +268,7 @@ void GamemodeLayer::beginButtons(PlayerObject* player1) {
 
 GamemodeLayer* GamemodeLayer::create(std::string const& text) {
     auto ret = new GamemodeLayer();
-    if (ret && ret->init(360.f, 170.f, text)) {
+    if (ret && ret->initAnchored(360.f, 170.f, text, "GJ_square02.png")) {
         ret->autorelease();
         return ret;
     }
