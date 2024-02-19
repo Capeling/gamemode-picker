@@ -1,4 +1,4 @@
-# Icon Profile Changelog
+# Gamemode Swapper Changelog
 ## v1.0.1
 - Adds an option to move the button to top right
 - Attempted touch prio fixes
