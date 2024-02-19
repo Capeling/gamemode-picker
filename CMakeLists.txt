@@ -6,11 +6,17 @@ set(CMAKE_CXX_VISIBILITY_PRESET hidden)
 
 project(gamemodepicker VERSION 1.0.0)
 
-add_library(${PROJECT_NAME} SHARED
-    src/main.cpp
-    # Add your cpp files here
+# Use GLOB_RECURSE instead of GLOB
+# to recursively add all source files 
+# under src/ 
+file(GLOB_RECURSE SOURCES
+	src/*.cpp
 )
 
+# Set up the mod binary
+add_library(${PROJECT_NAME} SHARED ${SOURCES})
+
+set(GEODE_BINDINGS_REPO_PATH "S:/GitHub/Geode/bindings")
 if (NOT DEFINED ENV{GEODE_SDK})
     message(FATAL_ERROR "Unable to find Geode SDK! Please define GEODE_SDK environment variable to point to Geode")
 else()

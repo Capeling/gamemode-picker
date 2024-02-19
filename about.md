@@ -1,3 +1,3 @@
-# Template Mod
+# Gamemode Picker
 
-Edit about.md to change this
+Adds a button in the Pause Menu that allows you to change your gamemode!

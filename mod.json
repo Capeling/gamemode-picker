@@ -1,9 +1,22 @@
 {
 	"geode": "2.0.0-beta.17",
-	"gd": "2.204",
+	"gd": {
+		"win": "2.204",
+		"android": "2.205",
+		"mac": "2.200"
+	},
 	"version": "v1.0.0",
 	"id": "capeling.gamemode_picker",
 	"name": "gamemode picker",
 	"developer": "Capeling",
-	"description": ""
+	"description": "Adds a button in the Pause Menu that allows you to change your gamemode!",
+	"resources": {
+		"spritesheets": {
+			"GamemodeSheet":[
+				"resources/GamemodeSheet/unused/*.png",
+				"resources/GamemodeSheet/speeds/*.png",
+				"resources/GamemodeSheet/player/*.png"
+			]
+		}
+	}
 }

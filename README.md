@@ -1,3 +1,3 @@
-# gamemodepicker
+# Gamemode Picker
 
-This is where she makes a mod.
+Adds a button in the Pause Menu that allows you to change your gamemode!
