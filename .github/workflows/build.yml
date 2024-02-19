@@ -14,20 +14,12 @@ jobs:
         config:
         - name: Windows
           os: windows-latest
-          bindings: Capeling/bindings
-          
-        #- name: macOS
-        #  os: macos-latest
-
         - name: Android32
           os: ubuntu-latest
           target: Android32
-          bindings: Capeling/bindings
-
         - name: Android64
           os: ubuntu-latest
           target: Android64
-          bindings: Capeling/bindings
 
     name: ${{ matrix.config.name }}
     runs-on: ${{ matrix.config.os }}
@@ -39,6 +31,7 @@ jobs:
         uses: geode-sdk/build-geode-mod@main
         with:
           sdk: nightly
+          bindings: "Capeling/bindings"
           combine: true
           target: ${{ matrix.config.target }}
       
