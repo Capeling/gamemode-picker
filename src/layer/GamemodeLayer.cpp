@@ -76,7 +76,9 @@ bool isCube(PlayerObject* player) {
 bool GamemodeLayer::setup(std::string const& value) {
     auto playLayer = GameManager::sharedState()->m_playLayer;
     auto player1 = static_cast<PlayerObjectExt*>(playLayer->m_player1);
-    player1->updateSpeedVar();
+    setTouchPriority(2);
+    handleTouchPriority(this);
+    player1->updateSpeedVar();  
 
     m_title = CCLabelBMFont::create(value.c_str(), "bigFont.fnt");
     m_bgSprite->addChildAtPosition(m_title, Anchor::Top, ccp(0, -22));
