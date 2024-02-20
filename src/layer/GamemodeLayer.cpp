@@ -215,7 +215,12 @@ void GamemodeLayer::onMode(CCObject* sender) {
         case 5: player1->toggleRobotMode(true, true); break;
         case 6: player1->toggleSpiderMode(true, true); break;
         case 7: player1->toggleSwingMode(true, true); break;
-        case 8: player1->m_isPlatformer = !player1->m_isPlatformer; break;
+        case 8: 
+            player1->m_isPlatformer = !player1->m_isPlatformer;
+            #ifdef GEODE_IS_ANDROID
+                playLayer->m_uiLayer->togglePlatformerMode(player1->m_isPlatformer);
+            #endif
+            break;
         case 9: player1->togglePlayerScale(!static_cast<CCMenuItemToggler*>(sender)->m_toggled, true); break;
     }
     log::info("player speed: {}", player1->m_playerSpeed);

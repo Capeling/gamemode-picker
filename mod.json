@@ -5,7 +5,7 @@
 		"android": "2.205",
 		"mac": "2.200"
 	},
-	"version": "v1.0.1",
+	"version": "v1.0.2",
 	"id": "capeling.gamemode_picker",
 	"name": "Gamemode Swapper",
 	"developer": "Capeling",
