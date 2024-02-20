@@ -10,6 +10,7 @@
 	"name": "Gamemode Swapper",
 	"developer": "Capeling",
 	"description": "Adds a button in the Pause Menu that allows you to change your gamemode!",
+	"repository": "https://github.com/Capeling/gamemode-picker",
 	"settings": {
 		"topRight": {
 			"type": "bool",
