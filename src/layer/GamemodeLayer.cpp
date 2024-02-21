@@ -1,5 +1,6 @@
 #include "GamemodeLayer.h"
 #include <Geode/modify/PlayerObject.hpp>
+#include <Geode/modify/GJBaseGameLayer.hpp>
 
 using namespace geode::prelude;
 
@@ -18,7 +19,7 @@ class $modify(PlayerObjectExt, PlayerObject) {
     GJPlayerSpeed m_speed = GJPlayerSpeed::Default;
 
 	void togglePlayerScale(bool scale, bool unk) {
-        log::info("{}", scale);
+        // log::info("{}", scale);
 		PlayerObject::togglePlayerScale(scale, unk);
         m_fields->m_scale = scale;
 	}
@@ -31,7 +32,7 @@ class $modify(PlayerObjectExt, PlayerObject) {
     bool init(int p0, int p1, GJBaseGameLayer* p2, cocos2d::CCLayer* p3, bool p4) {
         if(!PlayerObject::init(p0, p1, p2, p3, p4))
             return false;
-        log::info("playerspeed: {}", m_playerSpeed);
+        // log::info("playerspeed: {}", m_playerSpeed);
         updateSpeedVar();
         return true;
     }
@@ -69,6 +70,13 @@ class $modify(PlayerObjectExt, PlayerObject) {
     }
 };
 
+class $modify(GJBaseGameLayer) {
+    void update(float p0) {
+        GJBaseGameLayer::update(p0);
+        static_cast<PlayerObjectExt*>(this->m_player1)->updateSpeedVar();
+    }
+};
+
 bool isCube(PlayerObject* player) {
     return !player->m_isShip && !player->m_isBall && !player->m_isBird && !player->m_isDart && !player->m_isRobot && !player->m_isSpider && !player->m_isSwing;
 }
@@ -78,7 +86,6 @@ bool GamemodeLayer::setup(std::string const& value) {
     auto player1 = static_cast<PlayerObjectExt*>(playLayer->m_player1);
     setTouchPriority(2);
     handleTouchPriority(this);
-    player1->updateSpeedVar();  
 
     m_title = CCLabelBMFont::create(value.c_str(), "bigFont.fnt");
     m_bgSprite->addChildAtPosition(m_title, Anchor::Top, ccp(0, -22));
@@ -223,7 +230,7 @@ void GamemodeLayer::onMode(CCObject* sender) {
             break;
         case 9: player1->togglePlayerScale(!static_cast<CCMenuItemToggler*>(sender)->m_toggled, true); break;
     }
-    log::info("player speed: {}", player1->m_playerSpeed);
+    // log::info("player speed: {}", player1->m_playerSpeed);
     auto obj = TeleportPortalObject::create("edit_eGameRotBtn_001.png", true);
     obj->m_cameraIsFreeMode = true;
     playLayer->updateCameraMode(obj, false);
