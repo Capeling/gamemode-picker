@@ -39,6 +39,7 @@ class $modify(CustomPauseLayer, PauseLayer) {
 };
 
 $execute {
+	#ifdef GEODE_IS_WINDOWS
 	using namespace keybinds;
 
 	//speeds
@@ -171,4 +172,5 @@ $execute {
 		{ Keybind::create(KEY_Five, Modifier::Alt) },
 		Category::PLAY
 	});
+	#endif
 }
