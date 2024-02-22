@@ -5,7 +5,7 @@
 		"android": "2.205",
 		"mac": "2.200"
 	},
-	"version": "v1.0.4-beta.1",
+	"version": "v1.0.4",
 	"id": "capeling.gamemode_picker",
 	"name": "Gamemode Swapper",
 	"developer": "Capeling",
@@ -19,7 +19,13 @@
             "id": "geode.node-ids",
             "version": "v1.6.0",
             "importance": "required"
-        }
+        },
+		{
+			"id": "geode.custom-keybinds",
+			"version": "v1.5.0",
+			"importance": "required",
+			"platforms": ["windows"]
+		}
 	],
 	"settings": {
 		"topRight": {
