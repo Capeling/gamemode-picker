@@ -84,8 +84,6 @@ bool isCube(PlayerObject* player) {
 bool GamemodeLayer::setup(std::string const& value) {
     auto playLayer = GameManager::sharedState()->m_playLayer;
     auto player1 = static_cast<PlayerObjectExt*>(playLayer->m_player1);
-    setTouchPriority(2);
-    handleTouchPriority(this);
 
     m_title = CCLabelBMFont::create(value.c_str(), "bigFont.fnt");
     m_bgSprite->addChildAtPosition(m_title, Anchor::Top, ccp(0, -22));
@@ -164,6 +162,36 @@ bool GamemodeLayer::setup(std::string const& value) {
     m_speedMenu->setScale(0.80);
     m_selectMenu->setScale(0.75);
     m_togglesMenu->setScale(0.85);
+
+    this->setID("GamemodeLayer");
+    m_combineMenu->setID("combined-menu");
+    m_speedMenu->setID("speed-buttons-menu");
+    m_selectMenu->setID("gamemode-buttons-menu");
+    m_togglesMenu->setID("toggle-buttons-menu");
+    m_title->setID("title");
+    m_cubeBtn->setID("cube-button");
+    m_shipBtn->setID("ship-button");
+    m_ballBtn->setID("ball-button");
+    m_birdBtn->setID("ufo-button");
+    m_dartBtn->setID("wave-button");
+    m_robotBtn->setID("robot-button");
+    m_spiderBtn->setID("spider-button");
+    m_swingBtn->setID("swing-button");
+    m_halfBtn->setID("half-speed-button");
+    m_normalBtn->setID("normal-speed-button");
+    m_doubleBtn->setID("2x-speed-button");
+    m_threeBtn->setID("3x-speed-button");
+    m_fourBtn->setID("4x-speed-button");
+    sizeBtn->setID("size-toggle-button");
+    platBtn->setID("platformer-toggle-button");
+    m_flipBtn->setID("gravity-toggle-button");
+    m_mainLayer->setID("main-layer");
+    m_buttonMenu->setID("close-button-menu");
+    m_closeBtn->setID("close-button");
+    m_bgSprite->setID("background");
+
+    setTouchPriority(2);
+    handleTouchPriority(this);
 
     return true;
 }

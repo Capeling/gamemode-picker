@@ -8,6 +8,8 @@ class $modify(CustomPauseLayer, PauseLayer) {
 
 	void customSetup() {
 		PauseLayer::customSetup();
+		setTouchPriority(1);
+		handleTouchPriority(this);
 
 		bool pos = Mod::get()->getSettingValue<bool>("topRight");
 		auto rightMenu = this->getChildByID("right-button-menu");
